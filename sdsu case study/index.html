@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>From Warning Email to Accountability Loop — Case Study | Michelle Xiong</title>
+<meta name="description" content="Redesigning academic probation intervention at SDSU: how a warning email became a structured, faculty-verified accountability loop that returned 92% of participating students to good standing." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩵</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css" />
+<link rel="stylesheet" href="../assets/css/case-study.css" />
+</head>
+<body>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ TOP NAV PILLS ============ -->
+<nav class="pillnav" aria-label="Site controls">
+  <a class="pill pill--back" href="../index.html">
+    <span class="pill-emoji" aria-hidden="true">←</span> Portfolio
+  </a>
+  <button class="pill pill--skim" id="skimToggle" type="button" aria-pressed="false">
+    <span class="pill-emoji" aria-hidden="true">🤔</span> Short on time? <strong>SKIM</strong>
+  </button>
+  <button class="pill pill--sound" id="soundToggle" type="button" aria-pressed="false">
+    <span class="pill-emoji" aria-hidden="true">🔈</span> SOUND
+  </button>
+  <button class="pill pill--dark" id="darkToggle" type="button" aria-pressed="false">
+    <span class="pill-emoji" aria-hidden="true">🌙</span> DARK
+  </button>
+</nav>
+
+<main class="wrap cs-wrap">
+
+  <!-- ============ HERO ============ -->
+  <header class="cs-hero">
+    <div class="cs-eyebrow-row">
+      <p class="eyebrow"><span class="dot"></span> CASE STUDY</p>
+      <div class="tag-row">
+        <span class="tag tag--green">92% returned to good standing</span>
+        <span class="tag tag--muted">Service Design &middot; Process Redesign &middot; Data Access</span>
+      </div>
+    </div>
+
+    <h1 class="cs-title">From Warning Email to Accountability Loop</h1>
+    <p class="cs-hook">A warning email tells a struggling student they're in trouble. It doesn't teach them what to do differently — and nobody was checking whether they did.</p>
+
+    <div class="card cs-meta-card" style="margin-top: 28px;">
+      <dl class="cs-meta-grid">
+        <div class="cs-meta-item">
+          <dt>Role</dt>
+          <dd>Lead Academic Advisor &amp; Lecturer, San Diego State University</dd>
+        </div>
+        <div class="cs-meta-item">
+          <dt>Timeline</dt>
+          <dd>2017 – 2021</dd>
+        </div>
+        <div class="cs-meta-item">
+          <dt>My Role in This Project</dt>
+          <dd>Sole designer and owner — identified the problem, built the data process, designed the intervention, and ran it independently within a 600-student caseload</dd>
+        </div>
+        <div class="cs-meta-item">
+          <dt>Tools/Systems</dt>
+          <dd>EAB Navigate, SIMS/R (student information system), APEX (institutional reporting)</dd>
+        </div>
+        <div class="cs-meta-item">
+          <dt>Outcome</dt>
+          <dd>92% of participating students returned to good academic standing within one academic year</dd>
+        </div>
+        <div class="cs-meta-item">
+          <dt>Recognition</dt>
+          <dd>Outstanding Advisor of the Year, 2019 — selected from ~200 professional staff and faculty advisors</dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="section" id="problem">
+    <h2 class="section-label"><span class="dot"></span> THE PROBLEM</h2>
+    <p class="cs-lede skimmable">A reactive, siloed, untracked process for reaching the most vulnerable students in my caseload.</p>
+    <div class="prose">
+      <p class="skimmable">Each term, SDSU flagged students on academic probation through an institutional DFW report. Before this project, the process looked like this:</p>
+      <ul class="bullet-list">
+        <li>At the end of each term, the Assistant Dean of Student Affairs generated a DFW report and distributed it to advisors.</li>
+        <li>Outreach to flagged students was sometimes done by the Assistant Dean, sometimes by the advisor — ownership was inconsistent.</li>
+        <li>The outreach itself was a warning email from the university and department — a notification, not an intervention.</li>
+        <li>There was no structured follow-up and no accountability mechanism. No baseline data existed on how many students recovered under the old model, because it simply wasn't measured or shared.</li>
+      </ul>
+      <p class="cs-lede" style="margin-top: 18px;">The core problem wasn't that students weren't being notified — it's that a warning email doesn't teach a struggling student what to do differently, and nobody was checking whether they did.</p>
+      <p>The content itself mattered, too. The institutional email was generic and impersonal — a blanket notice that a student was on academic probation. I redesigned the message: personalized with the student's name, the specific course they didn't pass, and their actual GPA, framed around wanting to help them build a plan rather than reporting a violation. If a student didn't open it within 3–5 days, I followed up with another email, a phone call, and a text — a deliberate choice not to let one unopened warning be the end of the outreach.</p>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH & DISCOVERY ============ -->
+  <section class="section" id="research">
+    <h2 class="section-label"><span class="dot"></span> RESEARCH &amp; DISCOVERY</h2>
+    <p class="cs-lede skimmable">I didn't wait for the institutional process to reach me.</p>
+    <div class="prose">
+      <p class="skimmable">Drawing on experience from a previous institution where I'd seen this kind of data used proactively, I:</p>
+      <ul class="bullet-list">
+        <li>Requested direct access to institutional data from the department's data administrator, rather than relying on the Assistant Dean's report and timeline.</li>
+        <li>Had a custom report built that went beyond the standard DFW list — including GPA data, so I could see not just who was flagged but how far off track each student was.</li>
+        <li>Ran this report myself as soon as grades were posted each term, so my outreach could begin immediately rather than waiting on someone else's distribution schedule.</li>
+      </ul>
+      <p>This gave me two things the old process didn't have: <strong>speed</strong> (I wasn't waiting on a handoff) and <strong>richer data</strong> (GPA context, not just a flag).</p>
+      <p>There was a second, less obvious research input: I was also co-teaching the department's senior capstone seminar. Being in the classroom — not just reading a transcript after the fact — gave me a qualitative layer the institutional report couldn't provide: I could directly observe engagement, participation, and disengagement, then feed that back into how I supported students as their advisor.</p>
+      <p class="skimmable">Two research channels into the same population — quantitative (grades, GPA) and observational (classroom behavior) — triangulated to build a fuller picture of who needed intervention and why.</p>
+    </div>
+  </section>
+
+  <!-- ============ THE DESIGN ============ -->
+  <section class="section" id="design">
+    <h2 class="section-label"><span class="dot"></span> THE DESIGN: THE PROGRESS REPORT PROCESS</h2>
+    <p class="cs-lede skimmable">Not a university requirement — I built it. There was no institutional template or mandate for a structured intervention.</p>
+    <div class="prose">
+      <p>The most common trigger for using it: a student would tell me they were struggling in a class, and when I asked "have you talked to your professor?", the answer was almost always no. The Progress Report was my answer to that gap — a mechanism that made the office-hours conversation happen, instead of just recommending it.</p>
+    </div>
+
+    <ol class="insight-list" style="margin-top: 28px;">
+      <li><span><strong>Multi-channel outreach.</strong> Email sequence and phone calls — not a single warning email, but a real attempt to reach the student.</span></li>
+      <li><span><strong>A required in-person meeting</strong>, reframed from discipline to support: the message was explicitly "you're not in trouble, I'm here to help," followed by building an academic plan together. As a mandated reporter, I told students early in the conversation that certain disclosures would require me to report them, so they could decide what and how to share without being caught off guard later — a trust-building design choice, not just a compliance requirement.</span></li>
+      <li><span><strong>The Progress Report itself</strong> — a structured form requiring the student to meet with each current-term instructor. This normalized office hours (getting students comfortable with a resource many hadn't used) and created faculty-verified accountability.</span></li>
+      <li><span><strong>Faculty sign-off.</strong> Instructors confirmed the meeting happened and noted positives and concerns, with an explicit invitation to email me directly with concerns — closing a communication gap that didn't exist in the old model.</span></li>
+      <li><span><strong>A closing-the-loop meeting.</strong> The student returned the completed report to me, and we discussed it together and built a concrete plan of action based on what instructors had flagged.</span></li>
+    </ol>
+
+    <div class="prose">
+      <p class="cs-lede">The structural shift: the old process ended at notification. This process didn't end until the student, their instructors, and I had all been in the loop and a plan existed.</p>
+    </div>
+  </section>
+
+  <!-- ============ EDGE CASES ============ -->
+  <section class="section" id="edge-cases">
+    <h2 class="section-label"><span class="dot"></span> BEYOND THE FORM: EDGE CASES &amp; WARM HANDOFFS</h2>
+    <div class="prose">
+      <p class="skimmable">Not every student's problem was solvable with an office-hours visit. The Progress Report was the default path, but the underlying design principle — meet the student where they are, then connect them to the right resource personally rather than just pointing — extended to several recurring edge cases.</p>
+    </div>
+
+    <div class="ps-pair">
+      <div class="card ps-card">
+        <span class="tag tag--muted">EDGE CASE</span>
+        <p><strong>Students unaware of their own options.</strong> Many didn't know they could take a late withdrawal from an entire term, or that they had a limited "bank" of withdrawal credits (18 over their academic career) to spend carefully.</p>
+      </div>
+      <div class="card ps-card ps-solution">
+        <span class="tag tag--green">RESPONSE</span>
+        <p>Translated opaque policy into a real decision: here's what a withdrawal protects (your GPA), here's what it costs (fewer withdrawals available later), here's what a course repeat does instead.</p>
+      </div>
+    </div>
+
+    <div class="ps-pair">
+      <div class="card ps-card">
+        <span class="tag tag--muted">EDGE CASE</span>
+        <p><strong>Petitions requiring third-party documentation.</strong> For students facing a crisis (e.g., a parent's death), knowing what documentation would actually satisfy a petition wasn't obvious.</p>
+      </div>
+      <div class="card ps-card ps-solution">
+        <span class="tag tag--green">RESPONSE</span>
+        <p>Helped students identify what would work — often something as simple as a funeral program — and connected them directly with the Assistant Dean to move the appeal forward.</p>
+      </div>
+    </div>
+
+    <div class="ps-pair">
+      <div class="card ps-card">
+        <span class="tag tag--muted">EDGE CASE</span>
+        <p><strong>Financial aid implications.</strong> Many students received Pell Grants or other aid tied to enrollment status, so decisions about withdrawals or leaves of absence had downstream financial consequences.</p>
+      </div>
+      <div class="card ps-card ps-solution">
+        <span class="tag tag--green">RESPONSE</span>
+        <p>Built relationships with financial aid counselors and made warm introductions — looping students into an email thread with a real person, not a generic referral.</p>
+      </div>
+    </div>
+
+    <div class="ps-pair">
+      <div class="card ps-card">
+        <span class="tag tag--muted">EDGE CASE</span>
+        <p><strong>Leave of absence as an underused option.</strong> Students often didn't realize they could take up to three consecutive leaves of absence.</p>
+      </div>
+      <div class="card ps-card ps-solution">
+        <span class="tag tag--green">RESPONSE</span>
+        <p>Reframed some situations from "drop out" to "pause and return."</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p class="cs-lede" style="margin-top: 8px;">The common thread: a warm handoff to a real person — an email introduction, walking a student to the tutoring center in person — increased follow-through compared to a cold referral. Reducing shame and reducing the number of times a struggling student had to advocate for themselves alone were both explicit design goals, not incidental kindness.</p>
+    </div>
+  </section>
+
+  <!-- ============ OUTCOME ============ -->
+  <section class="section" id="outcome">
+    <h2 class="section-label"><span class="dot"></span> OUTCOME</h2>
+
+    <div class="stat-grid">
+      <div class="card stat-card">
+        <div class="stat-number">92%</div>
+        <div class="stat-label">of students who went through this process returned to good academic standing within one academic year</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-number">10–30</div>
+        <div class="stat-label">students fell into the probation/DFW population each term, out of a 600-student caseload</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-number">~98%</div>
+        <div class="stat-label">on-time graduation rate for first-time freshmen — a 2025 Graduation Initiative benchmark the department hit during my tenure, reflecting my broader advising redesign (not the probation process specifically)</div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top: 8px;">
+      <h3>A moment that shows the "why" behind the design</h3>
+      <p class="skimmable">One student, Cassandra — normally an engaged, high-performing student — failed nearly all her courses in a term and landed on academic probation. She stopped responding to outreach entirely: emails (which I could see she'd opened), calls, even EAB texts. I eventually ran into her on campus, and she visibly tried to avoid me.</p>
+      <p>When I caught up with her, she said she'd been avoiding me out of shame, afraid she'd let me down and would "get in trouble." Once she understood that wasn't the case, she opened up about a family crisis — her mother's illness — that had derailed her semester. That conversation led to a late petition that reclassified her failing grades as withdrawals, protecting her GPA and getting her off probation.</p>
+    </div>
+
+    <div class="quote-block">
+      <p>"I'd been avoiding you out of shame — afraid I'd let you down and would get in trouble."</p>
+    </div>
+
+    <div class="prose">
+      <p class="cs-lede">This moment is the clearest evidence for why the Progress Report leads with "you're not in trouble" rather than a warning: shame and fear of consequence were actively preventing a struggling student from seeking help. Design that assumes students will self-advocate when scared is design that fails exactly the students who need it most.</p>
+    </div>
+  </section>
+
+  <!-- ============ REFLECTION ============ -->
+  <section class="section" id="reflection">
+    <h2 class="section-label"><span class="dot"></span> REFLECTION</h2>
+    <div class="prose">
+      <p class="cs-lede skimmable">Struggling students don't disengage because they don't care — they disengage because they're ashamed.</p>
+      <p class="skimmable">Cassandra was one of the most active, event-attending students in the program, and her response to failing wasn't to ask for help, it was to hide. A process that starts with a warning email confirms the fear a student already has — that they're in trouble — which pushes exactly the students who need help furthest away. Leading with "you're not in trouble, I'm here to help" wasn't a soft touch; it was a deliberate design decision to remove the barrier that was actually stopping students from engaging.</p>
+
+      <h3>A real limitation</h3>
+      <p class="skimmable">This process didn't scale beyond my own caseload and department. Much of what made it work — the outreach persistence, the relationships with faculty and financial aid — lived with me rather than in any documented, transferable system.</p>
+      <p>If I were to build this again for a full department, I'd want to formalize it early: written documentation, faculty buy-in built into onboarding, and leadership sponsorship, so the intervention could survive a transition to someone else.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <h2>Let's work together.</h2>
+  <div class="footer-links">
+    <a href="mailto:michellec.xiong@gmail.com">michellec.xiong@gmail.com</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="../index.html">&larr; Back to portfolio</a>
+  </div>
+  <p class="footer-credit">Designed &amp; built by Michelle Xiong</p>
+</footer>
+
+<script src="../assets/js/case-study.js"></script>
+</body>
+</html>

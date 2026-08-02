@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ABIRC Marketplace — Case Study — Michelle Xiong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: '#F5F1E8',
+          paper: '#FBF9F4',
+          ink: '#1C1B18',
+          muted: '#7A756B',
+          green: {
+            DEFAULT: '#193A2D',
+            dark: '#122A21',
+          },
+          mustard: '#C9962C',
+          teal: '#3E6B5C',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          mono: ['IBM Plex Mono', 'monospace'],
+          sans: ['Manrope', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F5F1E8; color: #1C1B18; }
+
+  .bracket {
+    position: relative;
+  }
+  .bracket::before,
+  .bracket::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: currentColor;
+    opacity: 0.55;
+  }
+  .bracket::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+  .bracket::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+
+  .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7A756B;
+  }
+
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    padding: 0.28rem 0.65rem;
+    border-radius: 3px;
+    background: #EAE4D6;
+    color: #3f3b34;
+    display: inline-block;
+  }
+
+  .underline-link {
+    text-decoration: underline;
+    text-decoration-color: rgba(28,27,24,0.3);
+    text-underline-offset: 4px;
+    transition: text-decoration-color .2s ease;
+  }
+  .underline-link:hover { text-decoration-color: #C9962C; }
+
+  .img-placeholder {
+    background: #EDE8DC;
+    border: 1px solid rgba(28,27,24,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7A756B;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .divider {
+    border-top: 1px solid rgba(28,27,24,0.12);
+  }
+
+  .top-bar {
+    border-top: 3px solid;
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 bg-cream/90 backdrop-blur border-b border-ink/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
+    <a href="https://michelle-xiong-portfolio.netlify.app/" class="font-serif text-lg tracking-tight">Michelle Xiong</a>
+    <nav class="hidden md:flex items-center gap-8 label">
+      <a href="https://michelle-xiong-portfolio.netlify.app/#work" class="hover:text-ink transition">// Work</a>
+      <a href="https://michelle-xiong-portfolio.netlify.app/#about" class="hover:text-ink transition">// About</a>
+      <a href="https://michelle-xiong-portfolio.netlify.app/#contact" class="hover:text-ink transition">// Contact</a>
+    </nav>
+    <a href="mailto:michellec.xiong@gmail.com" class="bg-ink text-cream text-xs font-mono tracking-wide px-4 py-2 uppercase">Say Hello</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 pt-16 pb-14 md:pt-24 md:pb-20">
+  <p class="label mb-5 fade-up">// Case Study — Wholesale Marketplace &middot; UX Design &middot; 2024</p>
+  <h1 class="font-serif text-[2.6rem] leading-[1.08] md:text-6xl md:leading-[1.05] max-w-3xl fade-up">
+    When the brief says <span class="italic text-teal">"build it for tomorrow,"</span> what do you owe today?
+  </h1>
+  <p class="mt-8 max-w-xl text-[0.95rem] leading-relaxed text-ink/80 fade-up">
+    ABIRC Marketplace — a wholesale produce platform built on a grant, a deadline, and a design that had to
+    quietly serve two audiences from a single build.
+  </p>
+</section>
+
+<!-- HERO IMAGE -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 fade-up">
+  <figure class="bracket border border-ink/12 overflow-hidden">
+    <img src="images/ABIRC Marketplace Hero.gif" alt="Screen recording walkthrough of the live ABIRC Marketplace, showing the homepage, delivery reminder, and produce catalog." class="w-full h-auto" />
+  </figure>
+  <p class="label mt-3">The live ABIRC Marketplace — built story-first, not shop-first.</p>
+</section>
+
+<!-- AT A GLANCE -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-12 gap-10 divider mt-16">
+  <div class="md:col-span-4 fade-up">
+    <p class="label mb-3">01 — Project at a Glance</p>
+    <h2 class="font-serif text-2xl">ABIRC Marketplace</h2>
+  </div>
+  <div class="md:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-6 text-sm fade-up">
+    <div>
+      <p class="label mb-1">Client</p>
+      <p>Asian Business Institute and Resource Center (ABIRC) — Fresno, CA</p>
+    </div>
+    <div>
+      <p class="label mb-1">My Role</p>
+      <p>UX Designer — research, wireframes, prototyping, usability testing</p>
+    </div>
+    <div>
+      <p class="label mb-1">Timeline</p>
+      <p>March 2024 – October 2024</p>
+    </div>
+    <div>
+      <p class="label mb-1">Tools</p>
+      <p>Figma, Google Forms, Zoom, Squarespace</p>
+    </div>
+    <div>
+      <p class="label mb-1">Methods</p>
+      <p>Competitive research, stakeholder interviews, screener survey, wireframes, moderated usability testing</p>
+    </div>
+    <div>
+      <p class="label mb-1">Outcome</p>
+      <p>Delivered functional online marketplace</p>
+    </div>
+    <div class="sm:col-span-2">
+      <p class="label mb-2">Key Collaborators</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag">Program Manager</span>
+        <span class="tag">Program Specialist</span>
+        <span class="tag">Deputy Director</span>
+        <span class="tag">Photographer, Independent Contractor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE BRIEF -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 divider grid md:grid-cols-12 gap-10">
+  <div class="md:col-span-4 fade-up">
+    <p class="label mb-3">02 — The Brief</p>
+    <h2 class="font-serif text-3xl leading-tight">A grant, a deadline, and a marketplace that had to serve two audiences from one build.</h2>
+  </div>
+  <div class="md:col-span-8 space-y-5 text-[0.95rem] leading-relaxed text-ink/85 fade-up">
+    <p>ABIRC had a grant, a deadline, and a vision split across two phases. Phase 1 would launch a wholesale marketplace selling Asian specialty produce to Bay Area buyers. Phase 2 — contingent on future funding — would expand to direct-to-consumer in the Fresno community.</p>
+    <p>The brief said: build Phase 1 in a way that scales into Phase 2.</p>
+    <p>What it didn't say — what surfaced through research — was that Phase 1's market was already saturated, Phase 2's demand was the one we'd actually validated, and the design would have to serve two audiences from a single build. That tension shaped every decision I made on this project.</p>
+  </div>
+</section>
+
+<!-- WHAT SHIPPED -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 divider">
+  <p class="label mb-3 fade-up">03 — What Shipped</p>
+  <h2 class="font-serif text-3xl leading-tight max-w-3xl fade-up">The ABIRC Marketplace launched and met every benchmark the grant defined, while operating fully within the project's financial and organizational constraints.</h2>
+
+  <div class="mt-12 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-5 fade-up">
+      <p class="label mb-4">Deliverables</p>
+      <ul class="space-y-4 text-sm">
+        <li class="border-l-2 border-mustard pl-4">
+          <p class="font-mono text-xs text-muted mb-1">July 2024</p>
+          <p>Soft-launched on the original target date with invited Bay Area buyers</p>
+        </li>
+        <li class="border-l-2 border-mustard pl-4">
+          <p class="font-mono text-xs text-muted mb-1">September 2024</p>
+          <p>Public launch and outcomes reported; project closed within scope and budget</p>
+        </li>
+      </ul>
+    </div>
+    <div class="md:col-span-7 fade-up">
+      <p class="label mb-4">What I shipped</p>
+      <ul class="space-y-3 text-[0.95rem] leading-relaxed text-ink/85">
+        <li class="flex gap-3"><span class="text-mustard">—</span> A wholesale marketplace built with Squarespace, structured around storytelling</li>
+        <li class="flex gap-3"><span class="text-mustard">—</span> A seasonal produce library that enables non-technical staff to maintain the catalog</li>
+        <li class="flex gap-3"><span class="text-mustard">—</span> Three documented user flows (buyer, farmer, ABIRC fulfillment operations) that defined both the product experience and the operational model for running the marketplace day to day</li>
+        <li class="flex gap-3"><span class="text-mustard">—</span> Competitive and market research that didn't exist when the grant was written — now part of ABIRC's institutional knowledge</li>
+        <li class="flex gap-3"><span class="text-mustard">—</span> A strategic recommendation for a regional pivot that ABIRC's leadership can revisit when future funding allows</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONSTRAINTS -->
+<section class="bg-green text-cream">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20">
+    <p class="label mb-3 fade-up !text-cream/60">04 — The Constraints We Couldn't Change</p>
+    <p class="max-w-2xl text-[0.95rem] leading-relaxed text-cream/80 fade-up">
+      ABIRC envisioned the work in two phases: Phase 1, funded by this grant, an online marketplace selling
+      Asian specialty produce to Bay Area wholesale businesses; and Phase 2, a long-term aspiration contingent
+      on future funding, expanding to general consumers in the Fresno community. Within this challenge sat two
+      layered problems that shaped my design decisions.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-8">
+      <div class="bracket border border-cream/20 p-7 fade-up">
+        <p class="font-mono text-xs text-mustard mb-3">Problem 01</p>
+        <p class="text-[0.95rem] leading-relaxed text-cream/90 mb-6">
+          The market was already saturated and the project couldn't pivot away from it. Research surfaced that the
+          Bay Area was already heavily served by wholesalers also selling Asian specialty crops. I recommended
+          refocusing on ABIRC's existing Fresno customer base, but grant terms locked the audience to the Bay Area.
+        </p>
+        <div class="border-t border-cream/20 pt-4">
+          <p class="font-mono text-xs text-cream/50 mb-1">Trade-off / Solution</p>
+          <p class="text-sm text-cream/90">Amplify ABIRC's farmer-direct model to highlight their competitive edge.</p>
+        </div>
+      </div>
+
+      <div class="bracket border border-cream/20 p-7 fade-up">
+        <p class="font-mono text-xs text-mustard mb-3">Problem 02</p>
+        <p class="text-[0.95rem] leading-relaxed text-cream/90 mb-6">
+          The marketplace had to integrate with ABIRC's existing operations. ABIRC was already running a working
+          operation — vegetable boxes, farmer relationships, and established fulfillment practices.
+        </p>
+        <div class="border-t border-cream/20 pt-4">
+          <p class="font-mono text-xs text-cream/50 mb-1">Solution</p>
+          <p class="text-sm text-cream/90">Surfaced and translated workflows into documented user flows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 divider">
+  <p class="label mb-3 fade-up">05 — What the Research Surfaced</p>
+  <h2 class="font-serif text-3xl leading-tight max-w-3xl fade-up">No research existed when the grant was written. So I ran it — and what it surfaced <span class="italic text-teal">reshaped the design.</span></h2>
+  <p class="mt-6 max-w-2xl text-[0.95rem] leading-relaxed text-ink/85 fade-up">
+    The work split across three tracks: competitive analysis (Phase 1 market landscape), a screener survey
+    (Phase 2 demand validation), and internal discovery of ABIRC's existing operations.
+  </p>
+
+  <!-- Competitive research -->
+  <div class="mt-14 grid md:grid-cols-12 gap-10 fade-up">
+    <div class="md:col-span-4">
+      <p class="label mb-2">Competitive &amp; Market Research</p>
+      <p class="text-sm text-ink/70 leading-relaxed">Analyzing the Bay Area and Fresno wholesale produce landscape to understand who ABIRC would compete against, and what differentiated them.</p>
+    </div>
+    <div class="md:col-span-8 space-y-4 text-[0.95rem] leading-relaxed text-ink/85">
+      <p>The market was crowded. California has 1,175 fruit and vegetable wholesalers (CA EDD), with the Bay Area heavily served by competitors already selling Asian specialty produce. This wasn't an underserved market waiting for a new entrant.</p>
+      <div class="grid sm:grid-cols-2 gap-4 pt-2">
+        <div class="bracket border border-ink/12 p-5 bg-paper">
+          <p class="font-mono text-xs text-mustard mb-2">Pattern 01</p>
+          <p class="text-sm">Membership-gated access was the industry norm — a quality control mechanism and a way to limit exposure to serious buyers.</p>
+        </div>
+        <div class="bracket border border-ink/12 p-5 bg-paper">
+          <p class="font-mono text-xs text-mustard mb-2">Pattern 02</p>
+          <p class="text-sm">Most competitors relied on aggregators, taking a margin between farmer and buyer — revealing ABIRC's direct-seller model as a story-worthy edge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screener survey -->
+  <div class="mt-16 grid md:grid-cols-12 gap-10 fade-up">
+    <div class="md:col-span-4">
+      <p class="label mb-2">Validating the Future</p>
+      <p class="text-sm text-ink/70 leading-relaxed">A screener survey deployed through ABIRC's social channels, reaching 34 respondents in the Fresno-area Asian community, to validate Phase 2 demand.</p>
+    </div>
+    <div class="md:col-span-8">
+      <img src="images/screener-survey-flyer.jpg" alt="Instagram/Facebook flyer for the ABIRC screener survey: 'We Want Your Feedback — Answer our quick survey. 10 lucky winners will get a produce box for participating.'" class="mx-auto max-w-[520px] w-full bracket border border-ink/12 mb-8" />
+      <div class="grid sm:grid-cols-3 gap-5">
+        <div>
+          <p class="font-serif text-3xl text-teal">76–79%</p>
+          <p class="text-xs text-ink/70 mt-2 leading-relaxed">Rated fair price, freshness, and supporting local farms "Very Important" — aligned directly with ABIRC's farmer-direct model.</p>
+        </div>
+        <div>
+          <p class="font-serif text-3xl text-teal">71%</p>
+          <p class="text-xs text-ink/70 mt-2 leading-relaxed">Said yes to buying from ABIRC farmers. Zero said no — the rest said "not sure," signaling curiosity, not rejection.</p>
+        </div>
+        <div>
+          <p class="font-serif text-3xl text-teal">82%</p>
+          <p class="text-xs text-ink/70 mt-2 leading-relaxed">Buy in large quantities for cultural gatherings — family (59%) and religious/spiritual celebrations (24%).</p>
+        </div>
+      </div>
+      <figure class="bracket border border-ink/12 bg-paper p-3 mt-8">
+        <img src="images/screener-findings.png" alt="Chart summarizing screener survey findings: fair price, freshness, and supporting local farms as top priorities; 71% would buy from ABIRC farmers with 0% no; 82% buy in bulk for cultural gatherings. n=34 respondents." class="w-full h-auto" />
+      </figure>
+      <p class="label mt-3">Screener survey findings — n = 34, deployed April 2024.</p>
+    </div>
+  </div>
+
+  <!-- Internal discovery -->
+  <div class="mt-16 grid md:grid-cols-12 gap-10 fade-up">
+    <div class="md:col-span-4">
+      <p class="label mb-2">Internal Discovery &amp; Strategic Recommendation</p>
+      <p class="text-sm text-ink/70 leading-relaxed">Mapping how the marketplace would plug into invoicing, farmer notification, quality control, and weekly Bay Area delivery.</p>
+    </div>
+    <div class="md:col-span-8 space-y-4 text-[0.95rem] leading-relaxed text-ink/85">
+      <p>Stakeholder mapping happened in parallel. I noticed early that decision-making cadence with the Deputy Director would move faster than alternatives, and adjusted my primary working rhythm accordingly — keeping design decisions unblocked through two team transitions later in the project.</p>
+      <p>Synthesizing the competitive analysis and survey findings, I brought a strategic recommendation to leadership: the Bay Area wholesale audience was oversaturated, with high risk of low conversion unless additional funding was secured for outreach; a more targeted Phase 1 audience — Asian community centers, local Asian restaurants, farm-to-table operations — could compete on differentiation rather than scale.</p>
+      <p class="text-ink/60 italic">Leadership acknowledged the recommendation but had no flexibility to act on it. The grant locked the scope to the Bay Area.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGNING FOR TWO AUDIENCES -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 divider">
+  <p class="label mb-3 fade-up">06 — Designing for Two Audiences at Once</p>
+  <h2 class="font-serif text-3xl leading-tight max-w-3xl fade-up">The design's job wasn't to sell produce. It was to make ABIRC's <span class="italic text-teal">farmer-direct model visible</span> — to Phase 1 buyers now, and Phase 2 buyers later.</h2>
+
+  <div class="mt-12 grid sm:grid-cols-3 gap-6 fade-up">
+    <div class="bracket border border-ink/12 bg-paper p-6">
+      <p class="font-mono text-xs text-mustard mb-3">Insight 01</p>
+      <p class="text-sm leading-relaxed">Industry-standard access gating plus Squarespace budget constraints led to a password-protected model — gated for Phase 1, scalable to membership in Phase 2.</p>
+    </div>
+    <div class="bracket border border-ink/12 bg-paper p-6">
+      <p class="font-mono text-xs text-mustard mb-3">Insight 02</p>
+      <p class="text-sm leading-relaxed">The aggregator norm, and buyers valuing transparency, confirmed the farmer-direct model as ABIRC's real differentiator — surfaced through storytelling.</p>
+    </div>
+    <div class="bracket border border-ink/12 bg-paper p-6">
+      <p class="font-mono text-xs text-mustard mb-3">Insight 03</p>
+      <p class="text-sm leading-relaxed">Seasonal catalog turnover and a non-technical maintenance team required a backend system updatable without designer involvement.</p>
+    </div>
+  </div>
+
+  <!-- user flows -->
+  <div class="mt-16 fade-up">
+    <p class="label mb-2">The Buyer, the Farmer, and Everything In Between</p>
+    <p class="text-[0.95rem] leading-relaxed text-ink/85 max-w-2xl mb-8">I designed the buyer flow directly and facilitated working sessions to surface and document the back-end workflows.</p>
+    <div class="grid sm:grid-cols-3 gap-5 text-sm mb-8">
+      <div class="border-l-2 border-teal pl-4">
+        <p class="font-mono text-xs text-muted mb-1">Buyer Flow</p>
+        <p>How a Bay Area business discovers the marketplace, gets access, browses the catalog, places an order, and receives delivery.</p>
+      </div>
+      <div class="border-l-2 border-teal pl-4">
+        <p class="font-mono text-xs text-muted mb-1">Farmer Flow</p>
+        <p>How a participating farmer's crop moves from listing to harvest to fulfilled sale.</p>
+      </div>
+      <div class="border-l-2 border-teal pl-4">
+        <p class="font-mono text-xs text-muted mb-1">ABIRC Back-end Flow</p>
+        <p>Invoice generation, farmer notification, quality assurance, and truck driver coordination.</p>
+      </div>
+    </div>
+    <figure class="bracket border border-ink/12 bg-paper p-3">
+      <a href="images/user-perspectives.png" target="_blank" rel="noopener">
+        <img src="images/user-perspectives.png" alt="Four user perspective cards: The Business Buyer (Phase 1 wholesale), The Community Buyer (Phase 2 direct-to-consumer), The Farmer (LFPP program participant), and The Operations Team (ABIRC back-end), each with goals and marketplace needs." class="w-full h-auto" />
+      </a>
+    </figure>
+    <p class="label mt-3 mb-8 !normal-case !tracking-normal">Four perspectives the marketplace design had to account for. <a href="images/user-perspectives.png" target="_blank" rel="noopener" class="underline-link">View full size ↗</a></p>
+
+    <figure class="bracket border border-ink/12 bg-paper p-3">
+      <a href="images/buyer-userflow.png" target="_blank" rel="noopener">
+        <img src="images/buyer-userflow.png" alt="Buyer user flow diagram: marketplace landing, create account, sign up, browse, produce product page, add to cart, checkout, purchase complete." class="w-full h-auto" />
+      </a>
+    </figure>
+    <p class="label mt-3 mb-8 !normal-case !tracking-normal">The buyer flow — discovery through delivery. <a href="images/buyer-userflow.png" target="_blank" rel="noopener" class="underline-link">View full size ↗</a></p>
+
+    <figure class="bracket border border-ink/12 bg-paper p-3">
+      <a href="images/abirc-backend-userflow.png" target="_blank" rel="noopener">
+        <img src="images/abirc-backend-userflow.png" alt="ABIRC back-end operations flow diagram: orders to fulfil, review invoice, notify farmer, confirm with buyer, pack and pick produce, complete invoice, deliver to buyer, check shipping, CRM satisfaction." class="w-full h-auto" />
+      </a>
+    </figure>
+    <p class="label mt-3 !normal-case !tracking-normal">The ABIRC fulfillment flow — invoicing, farmer notification, and delivery coordination. <a href="images/abirc-backend-userflow.png" target="_blank" rel="noopener" class="underline-link">View full size ↗</a></p>
+  </div>
+</section>
+
+<!-- PIVOT: STORY -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 divider grid md:grid-cols-12 gap-10">
+  <div class="md:col-span-4 fade-up">
+    <p class="label mb-3">07 — The Pivot</p>
+    <h2 class="font-serif text-3xl leading-tight">From Selling Produce to <span class="italic text-teal">Telling a Story</span></h2>
+  </div>
+  <div class="md:col-span-8 fade-up">
+    <p class="text-[0.95rem] leading-relaxed text-ink/85 mb-8">Research confirmed ABIRC's farmer-direct model was their competitive edge. But it wasn't articulated anywhere. The marketplace needed to tell before it could sell. I built three connected pieces:</p>
+
+    <figure class="bracket border border-ink/12 bg-paper p-3 mb-8">
+      <img src="images/Selling to Telling.gif" alt="Transition from a shop-first marketplace to a story-first experience on the ABIRC Marketplace." class="w-full h-auto" />
+    </figure>
+
+    <div class="space-y-6">
+      <div class="border-t border-ink/12 pt-5">
+        <p class="font-mono text-xs text-mustard mb-2">A values framework — SEED</p>
+        <p class="text-sm leading-relaxed">Sustainability, Equity, Entrepreneurship, Diversity. These weren't values I imposed; they articulated what ABIRC already believed but hadn't put into words.</p>
+      </div>
+      <div class="border-t border-ink/12 pt-5">
+        <p class="font-mono text-xs text-mustard mb-2">A multi-page narrative IA</p>
+        <p class="text-sm leading-relaxed">Rather than a typical shop-first marketplace: Our Story → Meet Our Farmers → How to Place an Order → Shop.</p>
+      </div>
+      <div class="border-t border-ink/12 pt-5">
+        <p class="font-mono text-xs text-mustard mb-2">Farmer profile copy</p>
+        <p class="text-sm leading-relaxed">Surfacing the specific people behind the produce — something a buyer could read, understand, and trust before placing an order.</p>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <p class="label mb-3">Photography Direction</p>
+      <p class="text-sm leading-relaxed text-ink/85 mb-5">I directed the contracted photographer on two distinct photo types: product photography (3 photos per item, including cut-open shots, so buyers could identify unfamiliar produce) and farmer &amp; community photography, with each shot mapped to a designated place in the design.</p>
+      <figure class="bracket border border-ink/12 bg-paper p-3">
+        <img src="images/photo-direction.png" alt="Photo direction sheet for the contracted photographer, showing product photography and farmer/community photography shot lists mapped to their placement in the design." class="w-full h-auto" />
+      </figure>
+      <figure class="bracket border border-ink/12 bg-paper p-3 mt-6">
+        <img src="images/Farmer Photography Direction.png" alt="Farmer photography direction sheet, showing shot list for farmers harvesting, employees holding boxes, and community moments mapped to their placement in the design." class="w-full h-auto" />
+      </figure>
+      <p class="label mt-3">Photo direction — every shot mapped to a designated place in the design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCE LIBRARY -->
+<section class="bg-teal/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-4 fade-up">
+      <p class="label mb-3">08 — The Produce Library</p>
+      <h2 class="font-serif text-3xl leading-tight">Building Something That Could <span class="italic text-teal">Outlive Me</span></h2>
+    </div>
+    <div class="md:col-span-8 fade-up">
+      <p class="text-[0.95rem] leading-relaxed text-ink/85 mb-6">A wholesale marketplace doesn't have a static catalog — items rotate as growing seasons shift. With a non-designer team taking over after my contract ended, the system needed to be maintainable without ongoing design support.</p>
+      <p class="text-[0.95rem] leading-relaxed text-ink/85 mb-6">The produce library was built on top of a monthly availability calendar mapping 100+ produce items to their growing seasons. I requested the calendar from ABIRC's Program Manager, whose domain knowledge of the farmers' harvest cycles made him the right person to build it. That calendar fed into the inventory sheet I used to list products in the marketplace — which grew into the full produce library over time.</p>
+      <p class="text-sm text-ink/85 mb-3">The library itself covered:</p>
+      <ul class="space-y-3 text-sm text-ink/85">
+        <li class="flex gap-3"><span class="text-mustard">—</span> Description fields (texture, taste, color, cooking tips, pairings) structured for direct product-page use</li>
+        <li class="flex gap-3"><span class="text-mustard">—</span> Storage guidance fields for each item</li>
+        <li class="flex gap-3"><span class="text-mustard">—</span> SF and LA Terminal Market pricing data</li>
+        <li class="flex gap-3"><span class="text-mustard">—</span> Status flags ("In season," "Not in season," "Need new photos," "Remove") for tracking</li>
+      </ul>
+      <p class="mt-6 text-sm text-ink/70 italic mb-8">The library wasn't just a back-end reference — it was the operational backbone of catalog management, and the single design choice most directly responsive to the mid-project team transitions.</p>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <figure class="bracket border border-ink/12 bg-paper p-3">
+          <img src="images/Availability Calendar.png" alt="Monthly availability calendar mapping produce items to their growing seasons in the produce library." class="w-full h-auto" />
+        </figure>
+        <figure class="bracket border border-ink/12 bg-paper p-3">
+          <img src="images/MP Inventory.png" alt="Produce library inventory sheet with pricing, description fields, and status flags." class="w-full h-auto" />
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTING -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 divider">
+  <p class="label mb-3 fade-up">09 — Testing What We'd Built</p>
+  <h2 class="font-serif text-3xl leading-tight max-w-3xl fade-up mb-10">Moderated usability testing with participants already motivated to use the product.</h2>
+
+  <div class="grid sm:grid-cols-3 gap-6 mb-14 fade-up">
+    <div class="bracket border border-ink/12 bg-paper p-6 text-sm">3 remote sessions over Zoom, 20–30 minutes each</div>
+    <div class="bracket border border-ink/12 bg-paper p-6 text-sm">Moderated, think-aloud protocol</div>
+    <div class="bracket border border-ink/12 bg-paper p-6 text-sm">Mixed methods — open exploration and concrete tasks</div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8 fade-up">
+    <div>
+      <p class="label mb-4">Findings that validated existing decisions</p>
+      <div class="space-y-5">
+        <div class="border-l-2 border-teal pl-4">
+          <p class="text-sm font-medium mb-1">The storytelling architecture worked</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Leading with story before commerce was validated. This confirmed the SEED values framework and the multi-page narrative.</p>
+        </div>
+        <div class="border-l-2 border-teal pl-4">
+          <p class="text-sm font-medium mb-1">Storage &amp; availability content was valuable</p>
+          <p class="text-sm text-ink/70 leading-relaxed">All three participants found storage guidance and seasonality information helpful — validating the content structure of the produce library.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="label mb-4">Findings that changed the design</p>
+      <div class="space-y-5">
+        <div class="border-l-2 border-mustard pl-4">
+          <p class="text-sm font-medium mb-1">Buyers wanted farmer-product attribution</p>
+          <p class="text-sm text-ink/70 leading-relaxed">Two of three asked which farmer grew each product. After discussion, we chose not to implement it — farmer safety and privacy took priority. "Meet Our Farmers" continued to introduce farmers at the community level.</p>
+        </div>
+        <div class="border-l-2 border-mustard pl-4">
+          <p class="text-sm font-medium mb-1">Seasonality should drive visibility, not just labels</p>
+          <p class="text-sm text-ink/70 leading-relaxed mb-2">All three pushed back on the on-page availability calendar as informational, not actionable: <span class="italic">"It's good to know, but if it's not available, I can't order it anyway… so what's the point of showing it?"</span></p>
+          <p class="text-sm text-ink/70 leading-relaxed">I removed the calendar from product pages; the seasonal data stayed as an internal tool for staff in the produce library.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-14 grid sm:grid-cols-2 gap-5 fade-up">
+    <figure class="bracket border border-ink/12 bg-paper p-3">
+      <img src="images/Shanghai Bok Choy Before.png" alt="Shanghai Bok Choy product page before the seasonal availability calendar was removed." class="w-full h-auto" />
+    </figure>
+    <figure class="bracket border border-ink/12 bg-paper p-3">
+      <img src="images/Shanghair Bok Choy After.png" alt="Shanghai Bok Choy product page after the seasonal availability calendar was removed." class="w-full h-auto" />
+    </figure>
+  </div>
+
+  <div class="mt-14 grid sm:grid-cols-2 gap-6 fade-up">
+    <div class="bracket border border-ink/12 p-6">
+      <p class="font-mono text-xs text-muted mb-2">Testing Constraint — Sample Size</p>
+      <p class="text-sm text-ink/80 leading-relaxed">Seven of thirty-four screener respondents indicated willingness to participate. Of those, I was able to schedule and complete sessions with three.</p>
+    </div>
+    <div class="bracket border border-ink/12 p-6">
+      <p class="font-mono text-xs text-muted mb-2">Testing Constraint — No Post-Launch Testing</p>
+      <p class="text-sm text-ink/80 leading-relaxed">The marketplace was live and ready on the original July target date, but the business outreach that would have brought engaged buyers in did not materialize due to a mid-summer team transition.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH SUPPORT -->
+<section class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 divider grid md:grid-cols-12 gap-10">
+  <div class="md:col-span-4 fade-up">
+    <p class="label mb-3">10 — Supporting the Launch</p>
+    <h2 class="font-serif text-2xl leading-tight">Extending the design work into launch prep.</h2>
+  </div>
+  <div class="md:col-span-8 fade-up">
+    <p class="text-[0.95rem] leading-relaxed text-ink/85 mb-8">As the July soft launch approached, I supported the team's outreach preparation by designing flyers for outreach and marketing. This wasn't originally in scope. But with the deadline approaching and the marketing work still open, contributing was the fastest path to launch.</p>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div>
+        <figure class="bracket border border-ink/12 bg-paper p-3">
+          <a href="images/Marketplace Launch Invite v2.png" target="_blank" rel="noopener">
+            <img src="images/Marketplace Launch Invite v2.png" alt="ABIRC Marketplace launch invite flyer designed for outreach." class="w-full h-auto" />
+          </a>
+        </figure>
+        <p class="label mt-3 !normal-case !tracking-normal"><a href="images/Marketplace Launch Invite v2.png" target="_blank" rel="noopener" class="underline-link">View full size ↗</a></p>
+      </div>
+      <div>
+        <figure class="bracket border border-ink/12 bg-paper p-3">
+          <a href="images/Marketplace Promo-Code.png" target="_blank" rel="noopener">
+            <img src="images/Marketplace Promo-Code.png" alt="ABIRC Marketplace promo code flyer designed for outreach and marketing." class="w-full h-auto" />
+          </a>
+        </figure>
+        <p class="label mt-3 !normal-case !tracking-normal"><a href="images/Marketplace Promo-Code.png" target="_blank" rel="noopener" class="underline-link">View full size ↗</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="bg-green text-cream">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20">
+    <p class="label mb-3 fade-up !text-cream/60">11 — What I'd Carry Forward</p>
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="fade-up">
+        <h3 class="font-serif text-2xl mb-4">What I Learned</h3>
+        <p class="text-[0.95rem] leading-relaxed text-cream/85 mb-4">Design alone doesn't determine commercial outcomes. The marketplace was ready for soft launch on the original July target date and went public in September — but adoption depended on buyer outreach that fell outside the design scope and outside what the project window could fully resource.</p>
+        <p class="text-[0.95rem] leading-relaxed text-cream/85">I cared about the marketplace succeeding. But caring isn't ownership. My job was to design the platform; bringing buyers in belonged to others. Recognizing where to stop was its own form of professional discipline.</p>
+      </div>
+      <div class="fade-up">
+        <h3 class="font-serif text-2xl mb-4">What I See More Clearly Now</h3>
+        <p class="text-[0.95rem] leading-relaxed text-cream/85 mb-4">The marketplace format made sense as preparation for the direct-to-consumer expansion ABIRC was working toward. But for Phase 1's wholesale audience, a simpler order-list format might have served the project better — visibly surfacing what the project actually still needed, rather than masking those gaps behind a complete-feeling product.</p>
+        <p class="text-[0.95rem] leading-relaxed text-cream/85 italic">In a next phase, I'd push to separate the form factor for Phase 1 from the vision for Phase 2, even when the same platform has to serve both.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-green-dark text-cream">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 py-16">
+    <p class="label mb-4 !text-cream/50">// Let's Connect</p>
+    <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-8 max-w-lg">I'd love to hear what you're building.</h2>
+    <div class="flex flex-wrap gap-6 mb-16">
+      <a href="mailto:michellec.xiong@gmail.com" class="underline-link text-cream">michellec.xiong@gmail.com</a>
+      <a href="#" class="underline-link text-cream">LinkedIn</a>
+    </div>
+    <div class="border-t border-cream/15 pt-6 flex flex-col sm:flex-row justify-between gap-2 text-xs font-mono text-cream/50">
+      <p>Michelle Xiong — UX designer, researcher, educator</p>
+      <p>Portland, Oregon</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
